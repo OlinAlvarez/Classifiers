@@ -6,6 +6,8 @@ import pickle
 from sklearn import svm
 from sklearn.externals import joblib
 from random import shuffle
+
+
 class DiceClassifier:
 
     def __init__(self):
@@ -92,6 +94,7 @@ class DiceClassifier:
                 die = box
                 true_dice.append(box)
         return true_dice
+
     def sliding_window(self,frame):
         step_size = 40
         window_size = 100

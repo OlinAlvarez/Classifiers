@@ -4,6 +4,7 @@ import numpy as np
 import utils as ut
 from sklearn import svm
 from random import shuffle
+
 class DiceClassifier:
 
     def __init__(self):

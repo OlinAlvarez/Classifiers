@@ -5,12 +5,10 @@ import matplotlib.pyplot as plt
 class p_DiceClassifier():
 
     def __init__(self):
-        self.svm = joblib.load('Dice_SVM_std.pkl')
+        self.svm = joblib.load('Dice_HogSVM_std.pk1')
         self.hog = self.get_hog()
         self.dims = (144, 144)
 
-        print type(self.hog)
-        print type(self.svm)
 
     def get_hog(self):
         minDim = 80

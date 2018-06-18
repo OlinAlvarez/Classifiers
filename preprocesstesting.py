@@ -4,9 +4,9 @@ import glob
 import random
 import cv2
 import numpy as np
-import DiceClassifier as dc
+import p_DiceClassifier as dc
 
-dc = dc.DiceClassifier()
+dc = dc.p_DiceClassifier()
 hog = dc.get_hog()
 lsvm =  dc.get_lsvm()
 

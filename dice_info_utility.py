@@ -4,14 +4,14 @@ import utils
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
-import p_DiceClassifier as DC
+import DiceClassifier as DC
 import time
 import glob
 from sklearn.externals import joblib
 
 #frame = data_utils.get_random_die()
 
-classifier = DC.p_DiceClassifier()
+classifier = DC.DiceClassifier()
 
 def save_pos(win):
     cv2.imwrite('pos_dice/' + str(time.time()) + 'dice.jpg',win)
