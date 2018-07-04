@@ -55,7 +55,7 @@ class DiceClassifier:
 
         pdata = getFeaturesWithLabel(pos_imgs, self.hog, self.dims, 1)
         ndata = getFeaturesWithLabel(neg_imgs, self.hog, self.dims, 0)
-
+        
         data = pdata + ndata
         shuffle(data)
 
@@ -72,7 +72,7 @@ class DiceClassifier:
         lsvm = svm.SVC(gamma=5, C= .5 , kernel="linear", probability=True)
         lsvm.fit(train_feat, train_label)
 
-        joblib.dump(lsvm,'Dice_SVM_std.pkl')
+        joblib.dump(lsvm,'Dice_SVM_std2.pkl')
 
         print lsvm.score(train_feat, train_label)
         result = lsvm.predict(test_feat)
@@ -108,5 +108,4 @@ class DiceClassifier:
                 if prob[1] > .8:
                     true_dice.append((x,y,window_size,window_size))
         return true_dice
-
 

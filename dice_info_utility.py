@@ -22,8 +22,10 @@ def save_neg(win):
 
 
 frames = []
-
-for img in glob.glob(('dice_test_data/*.jpg')):
+#picspath =  'sdsu_pics/dice/*.jpg'
+picspath =  'bumble_share/images/*.jpg'
+#picspath = 'dice_test_data/*.jpg'
+for img in glob.glob((picspath)):
     frames.append(cv2.imread(img))
 
 print len(frames)
@@ -46,14 +48,10 @@ for frame in frames:
 
     gim, gcontours, _ = cv2.findContours(gedges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     gboxes = [cv2.boundingRect(c) for c in gcontours]
-
-
-
     grois = [b for b in gboxes if b[2] * b[3] > 400 and math.fabs(b[2] - b[3]) < 30]
-
-
+    
     for x,y,w,h in grois:
-        cv2.rectangle(frame, (x,y),(x+w,y+h),utils.colors["green"], 1)
+        cv2.rectangle(frame, (x,y),(x+w,y+h),utils.colors["red"], 3)
 
     dice = classifier.classify(frame,grois)
 
@@ -63,6 +61,7 @@ for frame in frames:
     for x, y, w, h in dice:
         cv2.rectangle(final, (x, y), (x+w, y+h), utils.colors["magenta"], 2)
     plt.imshow(final)
+    #plt.imshow(gim)
     plt.show()
 
     print len(dice)
